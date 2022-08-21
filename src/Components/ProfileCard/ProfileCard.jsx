@@ -43,7 +43,9 @@ function ProfileCard(props) {
       </div>
       <div
         className="Buttons"
-        style={{ display: props.user._id === props._id ? "none" : "" }}
+        style={{
+          display: props.user._id === props.profile._id ? "none" : "",
+        }}
       >
         <Link to={"/update/" + props._id}>
           <button className="ButtonEdit">修改</button>

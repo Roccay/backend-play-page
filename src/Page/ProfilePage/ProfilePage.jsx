@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ProfileCard from "../../Components/ProfileCard/ProfileCard";
 import TrailCard from "../../Components/TrailCard/TrailCard";
 import "./ProfilePage.css";
 
 function ProfilePage(props) {
+  const params = useParams();
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
@@ -25,7 +26,7 @@ function ProfilePage(props) {
       const postsArr = await response.json();
       let foundEvent = [];
       postsArr.response.forEach((element) => {
-        if (element.Author === props.user._id) {
+        if (element.Author === params.id) {
           foundEvent.push(element);
         }
       });
@@ -39,19 +40,16 @@ function ProfilePage(props) {
 
   const getProfile = async () => {
     try {
-      const response = await fetch("/users");
+      const response = await fetch("/api/posts");
 
       const postsArr = await response.json();
-      console.log("-----", postsArr, response);
-      let foundEvent = [];
-      // postsArr.response.forEach((element) => {
-      //   if (element.Author === props.user._id) {
-      //     foundEvent.push(element);
-      //   }
-      // });
+      postsArr.response.forEach((element) => {
+        if (element.Author === params.id) {
+          setProfile(element);
 
-      if (!postsArr.success) return;
-      setProfile(postsArr);
+          return;
+        }
+      });
     } catch (err) {
       console.log(err);
     }
@@ -85,7 +83,8 @@ function ProfilePage(props) {
               <ProfileCard
                 {...e}
                 handleDelete={handleDelete}
-                user={props.user}
+                user={props.user || ""}
+                profile={profile.Author}
               />
             ))}
         </div>
