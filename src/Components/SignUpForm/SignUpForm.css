@@ -1,0 +1,116 @@
+.signup-popup {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  top: 0;
+  right: -120px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-container {
+  font-family: "Noto Serif TC", serif;
+  font-style: normal;
+  font-weight: 200;
+  width: 500px;
+  height: 540px;
+  background-color: rgb(219, 192, 39);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  margin-top: 50px;
+}
+
+.signup-form-row {
+  margin-bottom: 20px;
+}
+
+.signup-form-row > label {
+  width: 100%;
+  display: flex;
+  margin-right: 20px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.signup-form-row > input[type="text"] {
+  border-radius: 5px;
+  height: 40px;
+  background-color: whitesmoke;
+  width: 300px;
+  font-size: 20px;
+  color: grey;
+  text-align: center;
+}
+
+.signup-form-row > textarea:focus,
+.signup-form-row > input:focus {
+  outline: none;
+  color: grey;
+}
+
+.signup-form-row > input[type="password"] {
+  border-radius: 5px;
+  height: 40px;
+  background-color: whitesmoke;
+  width: 300px;
+  font-size: 20px;
+  color: grey;
+  text-align: center;
+}
+
+.signup-form-row > input[type="email"] {
+  border-radius: 5px;
+  height: 40px;
+  background-color: whitesmoke;
+  width: 300px;
+  font-size: 20px;
+  color: grey;
+  text-align: center;
+}
+
+.sign-up-form-button {
+  height: 50px;
+  font-size: 18px;
+  border-radius: 5px;
+  color: white;
+  width: 100px;
+  background-color: rgb(17, 17, 17);
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.sign-up-close-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+}
+
+.sign-up-close-button {
+  margin-bottom: 30px;
+  width: 40px;
+  height: 40px;
+
+  align-items: center;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.sign-up-error-message {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-top: 60px;
+}

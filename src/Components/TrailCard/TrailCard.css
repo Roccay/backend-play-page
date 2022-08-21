@@ -1,0 +1,75 @@
+#ItemBar {
+  padding-left: 15px;
+  padding-top: 10px;
+  background-color: rgb(0, 0, 0);
+  width: auto;
+  height: 4vh;
+}
+.photo {
+  margin-top: -3px;
+  width: 120%;
+  height: 220px;
+  overflow: hidden;
+  object-fit: contain;
+  display: flex;
+  margin-left: -35px;
+}
+
+.ExploreItem {
+  border-radius: 10px;
+  text-align: left;
+  display: inline-block;
+  margin: 20px;
+  background-color: rgb(0, 0, 0);
+  height: 300px;
+  width: 320px;
+  overflow: hidden;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.ExploreItem span {
+  color: gray;
+  font-size: 14px;
+}
+.ExploreItem:hover {
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.7);
+}
+.item-bar-header {
+  background-color: rgb(0, 0, 0);
+  margin-top: -5px;
+  width: auto;
+  height: 30%;
+  font-size: 20px;
+}
+
+.item-bar-header-pic {
+  height: 30px;
+}
+
+.item-bar-header-text {
+  margin: 10px;
+  padding-left: 25px;
+}
+
+.item-bar-description {
+  color: black;
+  font-size: 15px;
+}
+
+.item-bar-header-pic-container {
+  padding-right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.item-bar-details {
+  font-size: 15px;
+  text-decoration: none;
+  color: rgb(255, 118, 5);
+}
+
+.item-bar-details a {
+  text-decoration: none;
+  color: rgb(255, 118, 5);
+}

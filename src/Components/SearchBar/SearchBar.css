@@ -1,0 +1,38 @@
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.SearchBar {
+  width: 50%;
+  height: 40px;
+
+  display: inline-block;
+}
+
+.search-input {
+  padding-left: 40px;
+  background-color: rgb(36, 36, 36);
+  font-size: 15px;
+  width: 60%;
+  color: rgb(255, 255, 255);
+}
+
+.SearchButton {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 15px;
+  height: 100%;
+  width: 80px;
+  cursor: pointer;
+}
+textarea:focus,
+input:focus {
+  outline: none;
+  color: grey;
+}

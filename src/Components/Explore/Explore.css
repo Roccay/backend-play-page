@@ -1,0 +1,28 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(173, 173, 173);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(119, 119, 119);
+}
+.Explore {
+  text-align: center;
+  background-color: rgb(240, 240, 230);
+  color: white;
+  height: 88vh;
+  border-radius: 0px 0px 20px 20px;
+  margin-right: 20px;
+  overflow-y: scroll;
+}

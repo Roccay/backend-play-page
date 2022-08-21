@@ -1,0 +1,111 @@
+.login-popup {
+    display: none;
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 500px;
+    background-color: grey;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 25vh;
+    margin-top: 10px;
+}
+
+.login-form-row {
+    margin-bottom: 20px;
+}
+
+.login-form-row>label {
+    width: 100%;
+    display: flex;
+    margin-right: 20px;
+    color: whitesmoke;
+    margin-bottom: 10px;
+
+}
+
+.login-form-row>input[type=text] {
+    border-radius: 5px;
+    height: 40px;
+    background-color: whitesmoke;
+    width: 300px;
+    font-size: 20px;
+    color: grey;
+    text-align: center;
+}
+
+.login-form-row>textarea:focus,
+.login-form-row>input:focus {
+    outline: none;
+    color: grey;
+}
+
+.login-form-row>input[type=password] {
+    border-radius: 5px;
+    height: 40px;
+    background-color: whitesmoke;
+    width: 300px;
+    font-size: 20px;
+    color: grey;
+    text-align: center;
+}
+
+.login-form-label {
+    margin-right: 20px;
+}
+
+.login-form-button {
+    height: 50px;
+    font-size: 18px;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    background-color: rgb(255, 118, 5);
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.login-close-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.login-close-button {
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 118, 5);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.error-message {
+    text-align: center;
+    color: rgb(255, 118, 5);
+    margin-top: 0px;
+    margin-bottom: 40px;
+}
