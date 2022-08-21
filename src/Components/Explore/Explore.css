@@ -18,10 +18,11 @@
   background: rgb(119, 119, 119);
 }
 .Explore {
+  cursor: url(/public/mouse.png), auto;
   text-align: center;
   background-color: rgb(240, 240, 230);
   color: white;
-  height: 88vh;
+  height: 85vh;
   border-radius: 0px 0px 20px 20px;
   margin-right: 20px;
   overflow-y: scroll;

@@ -17,6 +17,10 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
+    verifiedGroup: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

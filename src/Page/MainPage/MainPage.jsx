@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Nav from "../../Components/Nav/Nav.jsx";
-import About from "../../Components/About/About.jsx";
+import "./MainPage.css";
 import Explore from "../../Components/Explore/Explore.jsx";
 
 function MainPage(props) {

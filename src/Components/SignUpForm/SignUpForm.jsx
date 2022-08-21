@@ -18,9 +18,6 @@ function SignUpForm(props) {
     });
   };
 
-  console.log(userSignUp.password);
-  console.log(userSignUp.confirm);
-
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {

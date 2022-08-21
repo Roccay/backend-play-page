@@ -1,16 +1,11 @@
 #profile-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  display: inline-block;
   padding: 10px 16px;
   border-radius: 10px;
-  border: 1px solid grey;
-  position: relative;
-  height: auto;
+
   margin-bottom: 20px;
-  margin-right: 20px;
+
+  font-family: "Noto Serif SC", serif;
 }
 
 .profile-card-button-container {
@@ -23,14 +18,31 @@
 
 .ButtonEdit,
 .ButtonDelete {
-  width: 50px;
+  width: 140px;
   height: 25px;
   border-radius: 5px;
-  background-color: rgb(84, 84, 84);
+  background-color: rgb(0, 0, 0);
   border: none;
   color: white;
+  margin: 10px;
+}
+.ButtonDelete {
+  width: 50px;
+  background-color: rgb(150, 50, 50);
 }
 
-#profile-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+.Buttons {
+  margin-top: -10px;
+}
+#profile-card .ExploreItem,
+#profile-card .item-bar-header,
+#profile-card .item-bar-header-text {
+  background-color: rgb(228, 205, 0);
+}
+#profile-card .item-bar-header-text {
+  color: black;
+  font-weight: bold;
+}
+.photo {
+  background-color: black;
 }

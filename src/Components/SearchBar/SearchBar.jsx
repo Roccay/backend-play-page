@@ -15,6 +15,7 @@ const SearchBar = (props) => (
       id="header-search"
       placeholder="请输入游戏关键字"
       name="s"
+      autoComplete="off"
     />
     <button className="SearchButton">搜索</button>
   </div>

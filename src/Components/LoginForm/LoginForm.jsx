@@ -16,9 +16,6 @@ function LoginForm(props) {
     });
   };
 
-  console.log(userLoggedIn.email);
-  console.log(userLoggedIn.password);
-
   const handleSubmit = async (evt) => {
     evt.preventDefault();
 
@@ -61,7 +58,7 @@ function LoginForm(props) {
               props.setShowLogin({ showLogin: false });
             }}
           >
-            X
+            关闭
           </div>
         </div>
 
@@ -69,33 +66,33 @@ function LoginForm(props) {
           <form autoComplete="off" className="login-form-container">
             <div className="login-form-row">
               <div className="login-form-label"></div>
-              <label>Email</label>
+              <label>電子郵箱</label>
               <input
                 type="text"
                 name="email"
                 value={userLoggedIn.email}
                 onChange={handleChange}
                 required
-                autoComplete="false"
+                autoComplete="off"
               />
             </div>
 
             <div className="login-form-row">
               {" "}
-              <label>Password</label>
+              <label>密碼</label>
               <input
                 type="password"
                 name="password"
                 value={userLoggedIn.password}
                 onChange={handleChange}
                 required
-                autoComplete="false"
+                autoComplete="off"
               />
             </div>
 
             <div>
               <button type="submit" className="login-form-button">
-                Log In
+                登入
               </button>
             </div>
           </form>

@@ -81,7 +81,7 @@ function Nav(props) {
         <ProfileButton
           name="我的庫"
           styleRef=""
-          route={"/profile/" + props.user._id}
+          route={props.user ? "/profile/" + props.user._id : ""}
           className="my-profile-button"
         />
         <MenuButton
