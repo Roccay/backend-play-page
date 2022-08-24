@@ -1,7 +1,6 @@
 const Post = require("../models/post");
 var uuidv4 = require("uuid4");
 const User = require("../models/user");
-const multer = require("multer");
 
 async function index(req, res) {
   try {

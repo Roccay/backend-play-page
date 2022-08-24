@@ -10,6 +10,7 @@ app.use(logger("dev"));
 app.use(express.json());
 
 app.use("/api/posts", require("./backend/routes/posts"));
+app.use("/api/bookmarks", require("./backend/routes/bookmarks"));
 app.use("/users", require("./backend/routes/users.js"));
 
 app.use(require("./backend/config/auth"));

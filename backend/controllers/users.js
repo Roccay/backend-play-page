@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Post = require("../models/post");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
@@ -6,6 +7,7 @@ const SALT_ROUNDS = 6;
 module.exports = {
   create,
   login,
+  profile,
 };
 
 async function create(req, res) {
@@ -31,6 +33,17 @@ async function login(req, res) {
       throw new Error();
     const token = jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
     res.status(200).json(token);
+  } catch {
+    res.status(400).json("Bad Credentials");
+  }
+}
+
+async function profile(req, res) {
+  const user = await User.findOne({ _id: req.params.id });
+  const posts = await Post.find({ Author: req.params.id });
+
+  try {
+    res.status(200).json({ response: user, posts, success: true });
   } catch {
     res.status(400).json("Bad Credentials");
   }

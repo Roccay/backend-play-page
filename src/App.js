@@ -8,6 +8,7 @@ import PostUpdatePage from "./Page/PostUpdatePage/PostUpdatePage";
 import ProfilePage from "./Page/ProfilePage/ProfilePage";
 import SideBar from "./Components/SideBar/SideBar";
 import AboutPage from "./Page/AboutPage/AboutPage";
+import LibraryPage from "./Page/LibraryPage/LibraryPage";
 
 class App extends Component {
   //-----------
@@ -38,6 +39,15 @@ class App extends Component {
             path="/games"
             element={
               <MainPage
+                user={this.state.user}
+                setUserInState={this.setUserInState}
+              />
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <LibraryPage
                 user={this.state.user}
                 setUserInState={this.setUserInState}
               />

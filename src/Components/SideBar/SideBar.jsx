@@ -9,7 +9,9 @@ function SideBar(props) {
         <Link to="/games">
           <button> 游戏录</button>
         </Link>
-        <button> 图书馆</button>
+        <Link to="/library">
+          <button> 图书馆</button>
+        </Link>
         <Link to="/">
           {" "}
           <button> 关于</button>

@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-
-import { Typography } from "@mui/material";
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import { Link, useParams } from "react-router-dom";
+import "../PostCreatePage/PostCreatePage.css";
 
 function PostUpdatePage(props) {
   const params = useParams();
@@ -21,8 +18,8 @@ function PostUpdatePage(props) {
     console.log(post.Address);
     setForm({
       author: props.user._id,
-      LocationName: post.LocationName,
-      address: post.Address,
+      GameName: post.GameName,
+      AuthorName: post.AuthorName,
       tags: post.Tags,
       fee: post.Fee,
       description: post.Description,
@@ -49,8 +46,8 @@ function PostUpdatePage(props) {
       });
       setForm({
         author: props.user._id,
-        locationName: "",
-        address: "",
+        GameName: "",
+        AuthorName: "",
         tags: [],
         fee: "",
         description: "",
@@ -62,47 +59,34 @@ function PostUpdatePage(props) {
   };
   return (
     <div className="PostCreatePage">
-      <AppBar position="static">
-        <Typography
-          variant="h3"
-          noWrap
-          component="h1"
-          sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-        >
-          Creating A New Spot
-        </Typography>
-      </AppBar>
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-        ref={formRef}
-      >
+      <h1>為庫中添加新的遊戲</h1>
+      <form autoComplete="off" ref={formRef} className="create-post-form">
         <br />
-        <TextField
+        遊戲名稱 <br />
+        <input
           id="outlined-basic"
-          label="LocationName"
+          label="GameName"
           variant="outlined"
-          name="LocationName"
-          value={form.LocationName || ""}
+          name="GameName"
+          value={form.GameName || ""}
           onChange={handleChange}
           required
         />
         <br />
-        <TextField
+        作者 <br />
+        <input
           id="outlined-basic"
-          label="address"
+          label="AuthorName"
           variant="outlined"
-          name="address"
-          value={form.address}
+          name="AuthorName"
+          value={form.AuthorName}
           onChange={handleChange}
           required
         />
         <br />
-        <TextField
+        標籤 <br />
+        <span>（請用空格分開）</span> <br />
+        <input
           id="outlined-basic"
           label="tags"
           variant="outlined"
@@ -112,7 +96,9 @@ function PostUpdatePage(props) {
           required
         />
         <br />
-        <TextField
+        價格
+        <br />
+        <input
           id="outlined-basic"
           label="fee"
           variant="outlined"
@@ -122,7 +108,10 @@ function PostUpdatePage(props) {
           required
         />
         <br />
-        <TextField
+        簡介
+        <br />
+        <textarea
+          className="descriptionInput"
           id="outlined-basic"
           label="description"
           variant="outlined"
@@ -132,8 +121,9 @@ function PostUpdatePage(props) {
           required
         />
         <br />
-
-        <TextField
+        相關圖像
+        <br />
+        <input
           id="outlined-basic"
           label="img"
           variant="outlined"
@@ -143,14 +133,15 @@ function PostUpdatePage(props) {
           required
         />
         <br />
-        <Link to="/profile">
+        <br />
+        <Link to={"/profile/" + props.user._id}>
           <Button variant="contained" onClick={updatePost}>
-            Update
+            更新
           </Button>
           <br /> <br />
-          <Button variant="contained">Back</Button>
+          <Button variant="contained">返回</Button>
         </Link>
-      </Box>
+      </form>
     </div>
   );
 }

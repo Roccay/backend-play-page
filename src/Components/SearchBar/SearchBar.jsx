@@ -13,7 +13,7 @@ const SearchBar = (props) => (
       onInput={(e) => props.setSearchQuery(e.target.value)}
       type="text"
       id="header-search"
-      placeholder="请输入游戏关键字"
+      placeholder="请输入关键字"
       name="s"
       autoComplete="off"
     />

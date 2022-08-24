@@ -17,39 +17,16 @@ function ProfilePage(props) {
       setUser(userDoc);
     }
     getProfile();
-    getPosts();
-  }, [posts]);
-  const getPosts = async () => {
-    try {
-      const response = await fetch("/api/posts");
-
-      const postsArr = await response.json();
-      let foundEvent = [];
-      postsArr.response.forEach((element) => {
-        if (element.Author === params.id) {
-          foundEvent.push(element);
-        }
-      });
-
-      if (!postsArr.success) return;
-      setPosts(foundEvent);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  }, []);
 
   const getProfile = async () => {
     try {
-      const response = await fetch("/api/posts");
+      const response = await fetch(`/users/profile/${params.id}`);
 
-      const postsArr = await response.json();
-      postsArr.response.forEach((element) => {
-        if (element.Author === params.id) {
-          setProfile(element);
-
-          return;
-        }
-      });
+      const profileInfo = await response.json();
+      if (!profileInfo.success) return;
+      setPosts(profileInfo.posts);
+      setProfile(profileInfo.response);
     } catch (err) {
       console.log(err);
     }
@@ -71,20 +48,21 @@ function ProfilePage(props) {
   return (
     <div className="ProfilePage">
       <div className="profile-header">
-        <h1>{user.name} 的 個人倉庫</h1>
+        <h1>{profile.name} 的 個人倉庫</h1>
       </div>
       <div className="header">
-        <p>{user.name} 的 遊戲庫</p>
+        <p>{profile.name} 的 遊戲庫</p>
       </div>
       <div className="game-container">
         <div className="profilecard-container">
           {posts &&
             posts.map((e) => (
               <ProfileCard
+                key={e._id}
                 {...e}
                 handleDelete={handleDelete}
                 user={props.user || ""}
-                profile={profile.Author}
+                profile={profile}
               />
             ))}
         </div>

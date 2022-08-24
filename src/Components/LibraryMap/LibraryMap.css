@@ -1,0 +1,69 @@
+.LibraryMap {
+  cursor: url(/public/mouse.png), auto;
+  text-align: center;
+  background-color: rgb(240, 240, 230);
+
+  height: 85vh;
+  border-radius: 0px 0px 20px 20px;
+  margin-right: 20px;
+  overflow-y: scroll;
+}
+.TopContainer {
+  margin: auto;
+  margin-top: 140px;
+}
+.middleContainer {
+  width: 530px;
+  height: 300px;
+  margin: auto;
+  display: flex;
+}
+.tutorialPanel {
+  width: 250px;
+  height: 250px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.referencePanel {
+  width: 250px;
+  height: 160px;
+  margin: 10px;
+}
+.otherPanel {
+  width: 250px;
+  height: 80px;
+  margin: 10px;
+  display: block;
+}
+.designPanel {
+  width: 510px;
+  height: 150px;
+  margin: auto;
+}
+.designPanel:hover,
+.tutorialPanel:hover,
+.referencePanel:hover,
+.otherPanel:hover {
+  background-color: rgb(236, 235, 158);
+}
+.designPanel,
+.tutorialPanel,
+.referencePanel,
+.otherPanel {
+  background-color: rgb(228, 205, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.backButtonInLibrary {
+  background-color: black;
+  color: white;
+  width: 120px;
+  border-radius: 5px;
+  height: 50px;
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+  cursor: pointer;
+}

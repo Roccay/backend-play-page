@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./TrailCardDetails.css";
 
 function TrailCardDetails(props) {
@@ -23,9 +24,12 @@ function TrailCardDetails(props) {
         </div>
         <div className="details-data-container">
           <div className="details-row">
-            <div className="details-row-label">作者:</div>
-            <div>{props.AuthorName}</div>
+            <div className="details-row-label">作者:</div>{" "}
+            <Link to={"/profile/" + props.Author}>
+              <div>{props.AuthorName}</div>
+            </Link>
           </div>
+
           <div className="details-row">
             <div className="details-row-label">簡介:</div>
             <div>{props.Description}</div>

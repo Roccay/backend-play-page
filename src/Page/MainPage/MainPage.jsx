@@ -7,10 +7,10 @@ function MainPage(props) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    getFilteredPosts();
+    getPosts();
   }, []);
 
-  const getFilteredPosts = async () => {
+  const getPosts = async () => {
     try {
       const response = await fetch("/api/posts");
       const postsArr = await response.json();
@@ -28,8 +28,7 @@ function MainPage(props) {
     }
 
     return posts.filter((post) => {
-      const postName = post.GameName.toLowerCase() + post.Tags.toLowerCase();
-      console.log(postName);
+      const postName = post.GameName.toLowerCase();
       return postName.includes(query);
     });
   };
@@ -46,7 +45,7 @@ function MainPage(props) {
         setUserInState={props.setUserInState}
         user={props.user}
       />
-      <Explore user={props.user} posts={filteredPosts} />
+      <Explore user={props.user} posts={filteredPosts || posts} />
     </div>
   );
 }

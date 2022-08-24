@@ -8,6 +8,7 @@ const postSchema = new Schema(
     id: { type: String, default: uuidv4 },
     GameName: { type: String, required: true },
     AuthorName: String,
+    GameLink: { type: String, default: "" },
     Tags: String,
     Fee: Number,
     Description: String,

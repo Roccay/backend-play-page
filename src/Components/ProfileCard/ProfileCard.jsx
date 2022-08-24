@@ -1,12 +1,7 @@
-import React, { useState, useEffect } from "react";
-
-import { Component } from "react";
-
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import "./ProfileCard.css";
 import TrailCardDetails from "../TrailCardDetails/TrailCardDetails";
-import { display } from "@mui/system";
 function ProfileCard(props) {
   const [showDetails, setShowDetails] = useState({
     showDetails: false,
@@ -44,7 +39,7 @@ function ProfileCard(props) {
       <div
         className="Buttons"
         style={{
-          display: props.user._id === props.profile._id ? "none" : "",
+          display: props.user._id === props.profile._id ? "" : "none",
         }}
       >
         <Link to={"/update/" + props._id}>
