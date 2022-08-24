@@ -7,6 +7,7 @@ import "./ProfilePage.css";
 function ProfilePage(props) {
   const params = useParams();
   const [posts, setPosts] = useState([]);
+  const [bookmarks, setBookmarks] = useState([]);
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
   useEffect(() => {
@@ -27,6 +28,7 @@ function ProfilePage(props) {
       if (!profileInfo.success) return;
       setPosts(profileInfo.posts);
       setProfile(profileInfo.response);
+      setBookmarks(profileInfo.bookmarks);
     } catch (err) {
       console.log(err);
     }
@@ -44,7 +46,6 @@ function ProfilePage(props) {
       setPosts(posts);
     } catch (err) {}
   };
-
   return (
     <div className="ProfilePage">
       <div className="profile-header">
@@ -69,6 +70,9 @@ function ProfilePage(props) {
       </div>
       <div className="header">
         <p>{user.name} 的 圖書館</p>
+      </div>
+      <div>
+        {bookmarks && bookmarks.map((e) => <p key={e._id}>{e.Title}</p>)}
       </div>
     </div>
   );

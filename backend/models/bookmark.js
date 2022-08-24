@@ -10,6 +10,11 @@ const bookmarkSchema = new Schema(
     Link: { type: String, default: "" },
     Tags: String,
     Language: String,
+    Type: {
+      type: String,
+      enum: ["design", "tutorial", "reference", "others"],
+      default: "design",
+    },
   },
   {
     timestamps: true,

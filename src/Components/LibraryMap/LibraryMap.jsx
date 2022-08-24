@@ -14,7 +14,9 @@ function LibraryMap(props) {
           </div>
         </div>
         <div className="middleContainer">
-          <div className="tutorialPanel">教程類</div>
+          <div className="tutorialPanel" onClick={props.tutorialPanelHandle}>
+            教程類
+          </div>
           <div className="middleRightContainer">
             <div className="referencePanel">參考類</div>
             <div className="otherPanel">其他類</div>

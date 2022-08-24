@@ -9,7 +9,7 @@ import ProfilePage from "./Page/ProfilePage/ProfilePage";
 import SideBar from "./Components/SideBar/SideBar";
 import AboutPage from "./Page/AboutPage/AboutPage";
 import LibraryPage from "./Page/LibraryPage/LibraryPage";
-
+import BookmarkCreatePage from "./Page/BookmarkCreatePage/BookmarkCreatePage";
 class App extends Component {
   //-----------
   state = {
@@ -57,6 +57,10 @@ class App extends Component {
           <Route
             path="/createPost"
             element={<PostCreatePage user={this.state.user} />}
+          />
+          <Route
+            path="/createBookmark"
+            element={<BookmarkCreatePage user={this.state.user} />}
           />
 
           <Route

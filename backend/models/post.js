@@ -6,7 +6,7 @@ const postSchema = new Schema(
     Author: { type: Schema.Types.ObjectId, ref: "User" },
     // Author: String,
     id: { type: String, default: uuidv4 },
-    GameName: { type: String, required: true },
+    GameName: String,
     AuthorName: String,
     GameLink: { type: String, default: "" },
     Tags: String,

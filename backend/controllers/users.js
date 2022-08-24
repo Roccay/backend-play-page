@@ -1,5 +1,6 @@
 const User = require("../models/user");
 const Post = require("../models/post");
+const Bookmark = require("../models/bookmark");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 6;
@@ -41,9 +42,9 @@ async function login(req, res) {
 async function profile(req, res) {
   const user = await User.findOne({ _id: req.params.id });
   const posts = await Post.find({ Author: req.params.id });
-
+  const bookmarks = await Bookmark.find({ Author: req.params.id });
   try {
-    res.status(200).json({ response: user, posts, success: true });
+    res.status(200).json({ response: user, posts, bookmarks, success: true });
   } catch {
     res.status(400).json("Bad Credentials");
   }

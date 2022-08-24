@@ -1,4 +1,4 @@
-const Bookmark = require("../models/post");
+const Bookmark = require("../models/bookmark");
 var uuidv4 = require("uuid4");
 const User = require("../models/user");
 
@@ -14,7 +14,8 @@ async function index(req, res) {
 }
 
 async function create(req, res) {
-  const user = await User.findById(req.body.author);
+  const user = await User.findById(req.body.Creator);
+  console.log("1111111");
   try {
     const bookmark = await Bookmark.create({
       Creator: user,
@@ -24,8 +25,9 @@ async function create(req, res) {
       Tags: req.body.tags,
       Link: req.body.Link,
       Language: req.body.Language,
+      Type: req.body.Type,
     });
-
+    console.log(bookmark);
     res.status(200).json({ success: true, response: bookmark });
   } catch (err) {
     console.log(err);
@@ -47,7 +49,7 @@ async function deleteBookmark(req, res) {
 async function updateBookmark(req, res) {
   const user = await User.findById(req.body.author);
   try {
-    const post = await Post.updateOne(
+    const bookmark = await Bookmark.updateOne(
       { _id: req.params.id },
       {
         Creator: user,
@@ -59,7 +61,7 @@ async function updateBookmark(req, res) {
       }
     );
 
-    res.status(200).json({ success: true, response: post });
+    res.status(200).json({ success: true, response: bookmark });
   } catch (err) {
     res.status(400).json(err);
   }

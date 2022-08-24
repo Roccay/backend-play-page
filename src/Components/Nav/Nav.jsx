@@ -78,6 +78,12 @@ function Nav(props) {
           route="/createPost"
           user={props.user}
         />
+        <MenuButton
+          name="登記資源"
+          styleRef="UploadSpotButton"
+          route="/createBookmark"
+          user={props.user}
+        />
         <ProfileButton
           name="我的庫"
           styleRef=""
