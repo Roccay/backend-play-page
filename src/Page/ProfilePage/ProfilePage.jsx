@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import LibraryCard from "../../Components/LibraryCard/LibraryCard";
 import ProfileCard from "../../Components/ProfileCard/ProfileCard";
 import TrailCard from "../../Components/TrailCard/TrailCard";
 import "./ProfilePage.css";
@@ -72,7 +73,15 @@ function ProfilePage(props) {
         <p>{user.name} 的 圖書館</p>
       </div>
       <div>
-        {bookmarks && bookmarks.map((e) => <p key={e._id}>{e.Title}</p>)}
+        {bookmarks &&
+          bookmarks.map((e) => (
+            <LibraryCard
+              key={e._id}
+              {...e}
+              user={props.user || ""}
+              profile={profile}
+            />
+          ))}
       </div>
     </div>
   );
