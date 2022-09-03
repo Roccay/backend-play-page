@@ -14,7 +14,8 @@ function LibraryCard(props) {
       <div
         className="ButtonsInLibrary"
         style={{
-          display: props.user._id === props.profile._id ? "" : "none",
+          display:
+            props.user && props.user._id === props.profile._id ? "" : "none",
         }}
       >
         <Link to={"/update/" + props._id}>

@@ -5,8 +5,17 @@ const User = require("../models/user");
 async function index(req, res) {
   try {
     const bookmarks = await Bookmark.find();
-
-    res.status(200).json({ success: true, response: bookmarks });
+    const designBM = await Bookmark.find({ Type: "design" });
+    const tutorialBM = await Bookmark.find({ Type: "tutorial" });
+    const referenceBM = await Bookmark.find({ Type: "reference" });
+    const othersBM = await Bookmark.find({ Type: "others" });
+    res.status(200).json({
+      success: true,
+      designBM,
+      tutorialBM,
+      referenceBM,
+      othersBM,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, response: err });
@@ -15,7 +24,6 @@ async function index(req, res) {
 
 async function create(req, res) {
   const user = await User.findById(req.body.Creator);
-  console.log("1111111");
   try {
     const bookmark = await Bookmark.create({
       Creator: user,

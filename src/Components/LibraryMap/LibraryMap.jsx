@@ -1,6 +1,6 @@
 import React from "react";
 import "./LibraryMap.css";
-
+import LibraryCard from "../LibraryCard/LibraryCard";
 function LibraryMap(props) {
   return (
     <div className="LibraryMap">
@@ -22,6 +22,26 @@ function LibraryMap(props) {
             <div className="otherPanel">其他類</div>
           </div>
         </div>
+      </div>
+      <div
+        className="designWrapper"
+        style={{ display: props.currentLoc == "design" ? "" : "none" }}
+      >
+        design
+      </div>
+      <div
+        className="tutorialWrapper"
+        style={{ display: props.currentLoc == "tutorial" ? "" : "none" }}
+      >
+        {props.tutorialBookmarks &&
+          props.tutorialBookmarks.map((e) => (
+            <LibraryCard
+              key={e._id}
+              {...e}
+              user={props.user || ""}
+              profile={props.profile || ""}
+            />
+          ))}
       </div>
       <button
         className="backButtonInLibrary"
