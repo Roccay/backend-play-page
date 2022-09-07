@@ -27,9 +27,10 @@ function Nav(props) {
   return (
     <div className="nav">
       <SearchBar
-        searchQuery={props.searchQuery}
-        setSearchQuery={props.setSearchQuery}
-        setUserInState={props.setUserInState}
+        handleChange={props.handleChange}
+        handleSubmit={props.handleSubmit}
+        updateSearch={props.updateSearch}
+        search={props.search}
         user={props.user}
       />
 

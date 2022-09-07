@@ -5,47 +5,55 @@ import Explore from "../../Components/Explore/Explore.jsx";
 
 function MainPage(props) {
   const [posts, setPosts] = useState([]);
+  const [search, setSearch] = useState({
+    Tags: "",
+  });
+  const handleChange = (e) => {
+    setSearch({ ...search, [e.target.name]: e.target.value });
+  };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   useEffect(() => {
     getPosts();
-  }, []);
-
+  }, [search]);
+  const updateSearch = async () => {
+    try {
+      const response = await fetch(`/api/posts/games/${search.Tags}`);
+      setSearch({
+        Tags: search.Tags,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const getPosts = async () => {
     try {
-      const response = await fetch("/api/posts");
-      const postsArr = await response.json();
+      if (search.Tags === "") {
+        const response = await fetch("/api/posts");
 
-      if (!postsArr.success) return;
-      setPosts(postsArr.response);
+        const postsArr = await response.json();
+        console.log("-111--", postsArr.response);
+        if (!postsArr.success) return;
+        setPosts(postsArr.response);
+      } else {
+      }
     } catch (err) {
       console.log(err);
     }
   };
 
-  const filterPosts = (posts, query) => {
-    if (!query) {
-      return posts;
-    }
-
-    return posts.filter((post) => {
-      const postName = post.GameName.toLowerCase();
-      return postName.includes(query);
-    });
-  };
-  const { search } = window.location;
-  const query = new URLSearchParams(search).get("s");
-  const [searchQuery, setSearchQuery] = useState(query || "");
-  const filteredPosts = filterPosts(posts, searchQuery);
-
   return (
     <div className="MainPage">
       <Nav
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        setUserInState={props.setUserInState}
         user={props.user}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        updateSearch={updateSearch}
+        search={search}
       />
-      <Explore user={props.user} posts={filteredPosts || posts} />
+      <Explore user={props.user} posts={posts} />
     </div>
   );
 }

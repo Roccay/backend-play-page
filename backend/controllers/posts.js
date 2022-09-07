@@ -3,10 +3,20 @@ var uuidv4 = require("uuid4");
 const User = require("../models/user");
 
 async function index(req, res) {
+  const filteredPost = [];
+  const posts = await Post.find();
   try {
-    const posts = await Post.find();
-
-    res.status(200).json({ success: true, response: posts });
+    if (req.params != "") {
+      await posts.forEach((element) => {
+        if (element.Tags.includes(req.params.tags)) {
+          filteredPost.push(element);
+        }
+      });
+      console.log("----", filteredPost);
+      res.status(200).json({ success: true, response: filteredPost });
+    } else {
+      res.status(200).json({ success: true, response: posts });
+    }
   } catch (err) {
     console.log(err);
     res.status(500).json({ success: false, response: err });

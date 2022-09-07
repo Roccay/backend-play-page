@@ -18,9 +18,6 @@ function BookmarkCreatePage(props) {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-  const handleChangeSelect = (e) => {
-    setOption(e.target.value);
-  };
   const createBookmark = async () => {
     if (!formRef.current.checkValidity()) return;
     try {
